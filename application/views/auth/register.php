@@ -1,49 +1,78 @@
-  <div class="container">
+<div class="register-box">
+    <div class="register-logo">
+        <a href="../../index2.html"><b>NEXT</b>Com</a>
+    </div>
 
-      <div class="card o-hidden border-0 shadow-lg my-5 col-lg-7 mx-auto">
-          <div class="card-body p-0">
-              <!-- Nested Row within Card Body -->
-              <div class="row">
-                  <div class="col-lg">
-                      <div class="p-5">
-                          <div class="text-center">
-                              <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                          </div>
-                          <form class="user">
-                              <div class="form-group">
-                                  <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Nama Lengkap">
-                              </div>
-                              <div class="form-group">
-                                  <input type="text" class="form-control form-control-user" id="alamat" name="alamat" placeholder="Alamat">
-                              </div>
-                              <div class="form-group">
-                                  <input type="text" class="form-control form-control-user" id="tgl_lahir" name="tgl_lahir" placeholder="Tanggal Lahir">
-                              </div>
-                              <div class="form-group">
-                                  <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Alamat E-Mail">
-                              </div>
-                              <div class="form-group row">
-                                  <div class="col-sm-6 mb-3 mb-sm-0">
-                                      <input type="password" class="form-control form-control-user" id="password1" name="password1" placeholder="Password">
-                                  </div>
-                                  <div class="col-sm-6">
-                                      <input type="password" class="form-control form-control-user" id="password2" name="password2" placeholder="Konfirmasi Password">
-                                  </div>
-                              </div>
-                              <button type="submit" class="btn btn-primary btn-user btn-block">
-                                  Register Account
-                              </button>
-                          </form>
-                          <hr>
-                          <div class="text-center">
-                              <a class="small" href="forgot-password.html">Forgot Password?</a>
-                          </div>
-                          <div class="text-center">
-                              <a class="small" href="<?= base_url('auth'); ?>">Already have an account? Login!</a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+    <div class="card">
+        <div class="card-body register-card-body">
+            <p class="login-box-msg">Jadilah Bagian dari Kami</p>
+
+            <form action="<?= base_url('auth/register') ?>" method="post">
+                <?= form_error('nama', '<small class="text-danger">', '</small>') ?>
+                <div class="input-group mb-3">
+                    <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Lengkap" value="<?= set_value('nama') ?>">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <?= form_error('tgl_lahir', '<small class="text-danger">', '</small>') ?>
+                <div class="input-group mb-3">
+                    <input type="text" id="tgl_lahir" name="tgl_lahir" class="form-control datepicker" placeholder="Tanggal Lahir" value="<?= set_value('tgl_lahir') ?>">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-calendar-alt"></span>
+                        </div>
+                    </div>
+                </div>
+                <?= form_error('alamat', '<small class="text-danger">', '</small>') ?>
+                <div class="input-group mb-3">
+                    <input type="text" id="alamat" name="alamat" class="form-control" placeholder="Alamat" value="<?= set_value('alamat') ?>">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-address-card"></span>
+                        </div>
+                    </div>
+                </div>
+                <?= form_error('email', '<small class="text-danger">', '</small>') ?>
+                <div class="input-group mb-3">
+                    <input type="text" id="email" name="email" class="form-control" placeholder="Email" value="<?= set_value('email') ?>">
+                    <div class=" input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
+                    </div>
+                </div>
+                <?= form_error('password1', '<small class="text-danger">', '</small>') ?>
+                <div class="input-group mb-3">
+                    <input type="password" id="password1" name="password1" class="form-control" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <?= form_error('password2', '<small class="text-danger">', '</small>') ?>
+                <div class="input-group mb-3">
+                    <input type="password" id="password2" name="password2" class="form-control" placeholder="Konfirmasi password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Daftar</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+            <a href="<?= base_url('auth') ?>" class="text-center">Saya Sudah Punya Akun</a>
+        </div>
+        <!-- /.form-box -->
+    </div><!-- /.card -->
+</div>
+<!-- /.register-box -->
