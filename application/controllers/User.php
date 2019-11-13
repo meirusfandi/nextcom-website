@@ -5,6 +5,10 @@ class User extends CI_Controller
 {
     public function index()
     {
-        echo "selamat datang";
+        $data['page_title'] = 'Dashboard - Next Community';
+        $this->load->view('user/header', $data);
+        $this->load->view('user/sidebar', $data);
+        $this->load->view('user/main/index', $data);
+        $this->load->view('user/footer');
     }
 }
