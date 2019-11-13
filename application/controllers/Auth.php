@@ -41,8 +41,11 @@ class Auth extends CI_Controller
             if ($user['active'] == 1) {
                 if (password_verify($password, $user['password'])) {
                     $data = [
+                        'user_id' => $user['id_user'],
+                        'name' => $user['nama'],
                         'email' => $user['email'],
-                        'role' => $user['role']
+                        'role' => $user['role'],
+                        'status' => 'telah_login'
                     ];
                     $this->session->set_userdata($data);
                     redirect('admin');
