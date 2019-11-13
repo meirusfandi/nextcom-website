@@ -45,7 +45,7 @@ class Auth extends CI_Controller
                         'role' => $user['role']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('user');
+                    redirect('admin');
                 } else {
                     $this->session->set_flashdata('messages', '<div class="alert alert-danger" role="alert">
                     Password Salah. Silakan Coba Lagi.
