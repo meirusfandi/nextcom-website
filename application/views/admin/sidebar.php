@@ -58,7 +58,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?php echo base_url('admin/user') ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Users
