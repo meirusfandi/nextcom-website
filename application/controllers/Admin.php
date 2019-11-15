@@ -16,19 +16,28 @@ class Admin extends CI_Controller
 		// jika session status tidak sama dengan session telah_login, berarti pengguna belum login
 		// maka halaman akan di alihkan kembali ke halaman login.
 		if($this->session->userdata('status')!="telah_login"){
-			redirect(base_url().'login?alert=belum_login');
-		}
-	}
+			redirect(base_url().'auth?alert=belum_login');
+        }
+    
+        $comment_table = "comment_table";
+        $message_table = "message_table";
+        $notification_table = "notification_table";
+        $user_role_table = "user_role_table";
+        $category_article = "category_article_table";
+        $pages_table = "pages_table";
+        $settings_table = "settings_table";
+    }
+
     // main dashboard admin page
     public function index()
     {
-        $table = "user";
-
+        $data['page'] = 'dashboard';
+        $user_table = "user";
         // function to get user profile by id user
         $where = array(
 			'id_user' => $this->session->userdata('user_id')
 		);
-        $profile = $this->Admin_models->get_data($table, $where)->row();
+        $profile = $this->Admin_models->get_data($user_table, $where)->row();
         
         $data['page_title'] = 'Dashboard - Next Community';
         $data['profile'] = $profile;
@@ -42,7 +51,17 @@ class Admin extends CI_Controller
     // user section on admin page
     public function user() 
     {
+        $data['page'] = 'user';
+        $user_table = "user";
+        // function to get user profile by id user
+        $where = array(
+			'id_user' => $this->session->userdata('user_id')
+		);
+        $profile = $this->Admin_models->get_data($user_table, $where)->row();
+        
+        $data['profile'] = $profile;
         $data['page_title'] = 'User Pages - Next Community';
+
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/user/index', $data);
@@ -77,6 +96,22 @@ class Admin extends CI_Controller
     // article section on admin page
     public function article() 
     {
+        $data['page'] = 'article';
+        $article_table = "article_table";
+        $user_table = "user";
+        // function to get user profile by id user
+        $where = array(
+			'id_user' => $this->session->userdata('user_id')
+		);
+        $profile = $this->Admin_models->get_data($user_table, $where)->row();
+        
+        $data['profile'] = $profile;
+        $data['page_title'] = 'User Pages - Next Community';
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/article/index', $data);
+        $this->load->view('admin/footer');
 
     }
 
@@ -108,7 +143,21 @@ class Admin extends CI_Controller
     // user role section on admin page
     public function user_role() 
     {
+        $data['page'] = 'user_role';
+        $user_table = "user";
+        // function to get user profile by id user
+        $where = array(
+			'id_user' => $this->session->userdata('user_id')
+		);
+        $profile = $this->Admin_models->get_data($user_table, $where)->row();
+        
+        $data['profile'] = $profile;
+        $data['page_title'] = 'User Pages - Next Community';
 
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/user_role/index', $data);
+        $this->load->view('admin/footer');
     }
 
     public function add_user_role() 
@@ -140,7 +189,21 @@ class Admin extends CI_Controller
     // category article section on admin page
     public function category_article() 
     {
+        $data['page'] = 'category_article';
+        $user_table = "user";
+        // function to get user profile by id user
+        $where = array(
+			'id_user' => $this->session->userdata('user_id')
+		);
+        $profile = $this->Admin_models->get_data($user_table, $where)->row();
+        
+        $data['profile'] = $profile;
+        $data['page_title'] = 'User Pages - Next Community';
 
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/category_article/index', $data);
+        $this->load->view('admin/footer');
     }
 
     public function add_category_article() 
@@ -171,7 +234,21 @@ class Admin extends CI_Controller
     // settings section on admin page
     public function settings() 
     {
+        $data['page'] = 'settings';
+        $user_table = "user";
+        // function to get user profile by id user
+        $where = array(
+			'id_user' => $this->session->userdata('user_id')
+		);
+        $profile = $this->Admin_models->get_data($user_table, $where)->row();
+        
+        $data['profile'] = $profile;
+        $data['page_title'] = 'User Pages - Next Community';
 
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/settings/index', $data);
+        $this->load->view('admin/footer');
     }
 
     public function update_settings() 
