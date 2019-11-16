@@ -5,13 +5,13 @@ class Auth extends CI_Controller
 {
 
     function __construct()
-	{
+    {
         parent::__construct();
         $this->load->library('form_validation');
 
-		date_default_timezone_set('Asia/Jakarta');
+        date_default_timezone_set('Asia/Jakarta');
 
-		$this->load->model('Admin_models');
+        $this->load->model('Admin_models');
 
 		// cek session yang login, 
 		// jika session status tidak sama dengan session telah_login, berarti pengguna belum login
